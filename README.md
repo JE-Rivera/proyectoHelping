@@ -10,7 +10,24 @@ Para usar postgres como base de datos, primero debes ejecutar el siguiente Scrip
 donde se alamcenaran los datos del sistema:
 
 ```sql
-CREATE ROLE superuser LOGIN PASSWORD 'uesFIA2018' VALID UNTIL 'infinity';
+CREATE ROLE superUSER LOGIN PASSWORD 'uesFIA2018' VALID UNTIL 'infinity';
 CREATE DATABASE helpingDB WITH OWNER superUSER ENCODING='UTF8';
 REVOKE CONNECT ON DATABASE helpingDB FROM PUBLIC;
-ALTER ROLE superuser NOINHERIT;```
+ALTER ROLE superUSER NOINHERIT;```
+
+Ahora, desde la consolo ejecuta el siguiente comando:
+
+```sql
+psql -U postgres;```
+
+Ingresas la contraseña que usaste al instalar PostgreSQL en tu PC
+
+El prompt cambiará de la siguiente forma:
+
+```sql
+postgres=#```
+
+Ingresas el siguiente comando:
+
+```sql
+postgres=# GRANT ALL PRIVILEGES ON DATABASE helpingDB TO superUSER;```
