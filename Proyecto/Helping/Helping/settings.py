@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!6)7rah-os3h3*e(q#a24%9)hwa!#syk#i9*s5&+5pwh(3-pzj'
+SECRET_KEY = 'ry7-7@b+2^h%_)&820obj8_7-p=e75nk(&39_2)gpnoedwnk75'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+#    'evaluaciones.apps.EvaluacionesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'Helping.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'helpingdb',
+        'USER': 'superuser',
+        'PASSWORD': 'uesFIA2018',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
