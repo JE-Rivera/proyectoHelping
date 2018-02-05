@@ -1,4 +1,5 @@
 from django.db import models
+from evaluaciones.models import Universidad
 
 
 class Universidad(models.Model):
@@ -29,4 +30,18 @@ class Facultad(models.Model):
     class Meta:
         verbose_name = 'Facultad'
         verbose_name_plural = 'Facultades'
-        ordering = ['id']
+        ordering = ['nombre_facultad']
+
+class Carrera(models.Model):
+    nombre_carrera = models.CharField(max_length=80, blank=False)
+    universidad = models.ForeignKey('Universidad', on_delete=models.CASCADE)
+    facultad = models.ForeignKey('Facultad', on_delete=models.CASCADE)
+    cantidad_materias = models.PositiveIntegerField(verbose_name='Cantidad de materias')
+
+    def __str__(self):
+        return self.nombre_carrera
+
+    class Meta:
+        verbose_name = 'Carrera'
+        verbose_name_plural = 'Carreras'
+        ordering = ['universidad']
